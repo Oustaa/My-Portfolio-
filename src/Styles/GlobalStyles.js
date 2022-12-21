@@ -2,16 +2,26 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle `
     :root{
+        --background-light: #ECECEC;
         --background-body: #ECECEC;
         --primary-purble: #6C63FF;
         --secondary-gray: #616161;
         --black: #000;
     }
+    
+    html{
+        scroll-behavior: smooth;
+    }
+    
+    *{
+        font-family: 'Englebert', sans-serif;
+        box-sizing: border-box;
+    }
+
     body{
         padding:0;
         margin:0;
-        box-sizing: border-box;
-        font-family: 'Englebert', sans-serif;
+        margin-block:150px;
     }
     ul{
         list-style: none;
@@ -22,9 +32,6 @@ const GlobalStyles = createGlobalStyle `
     a{
         text-decoration: none;
         color: inherit;
-    }
-    main > *:not(div) {
-        margin-top:100px;
     }
 `;
 

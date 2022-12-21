@@ -3,6 +3,7 @@ import React from "react";
 import PortfolioItem from "./PortfolioItem";
 
 import Container from "../../Styles/Container";
+import Section from "../../Styles/Section";
 import styles from "styled-components";
 
 const StyledPortfolioHeader = styles.div`
@@ -17,12 +18,12 @@ const StyledPortfolioHeader = styles.div`
 const StyledPortfolioContainer = styles.div`
   display:grid;
   grid-template-columns: repeat(2, 1fr);
-  gap:1rem;
+  gap:2rem;
 `;
 
 const PortfolioSection = () => {
   return (
-    <section id="Portfolio">
+    <Section id="Portfolio">
       <Container>
         <StyledPortfolioHeader>
           <h2>Portfolio</h2>
@@ -39,7 +40,7 @@ const PortfolioSection = () => {
           ))}
         </StyledPortfolioContainer>
       </Container>
-    </section>
+    </Section>
   );
 };
 
