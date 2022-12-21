@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import PortfolioSection from "./components/portfolio/PortfolioSection";
 
 import GlobalStyles from "./Styles/GlobalStyles";
 
@@ -12,6 +13,7 @@ const App = () => {
       <Header />
       <main>
         <HeroSection />
+        <PortfolioSection />
       </main>
     </>
   );

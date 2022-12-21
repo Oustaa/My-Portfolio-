@@ -23,6 +23,9 @@ const GlobalStyles = createGlobalStyle `
         text-decoration: none;
         color: inherit;
     }
+    main > *:not(div) {
+        margin-top:100px;
+    }
 `;
 
 export default GlobalStyles;
