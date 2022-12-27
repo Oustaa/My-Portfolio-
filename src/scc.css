@@ -3,4 +3,7 @@ body {
     overflow: hidden;
     position: absolute;
     position: relative;
+    outline: 1px solid pink;
+    flex-direction: row-reverse;
+    cursor: inherit;
 }

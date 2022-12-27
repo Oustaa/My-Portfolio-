@@ -1,5 +1,7 @@
 import React from "react";
 
+import HeroImg from "../asits/heroSectionImg.png";
+
 import styles from "styled-components";
 import Container from "../Styles/Container";
 
@@ -7,22 +9,29 @@ const StyledHero = styles.div`
   display:flex;
   align-items:center;
   height:calc(100vh - 4rem);
+  min-height:600px;
+  max-height:900px;
 `;
 const StyledInfo = styles.div`
-  width:50%;
+  width:40%;
   
   h2{
-   font-size:1rem;
-   font-weight:400;
-   margin-bottom:0;
-   color: var(--secondary-gray);
-   margin-bottom:.5rem;
+    font-size:1rem;
+    font-weight:400;
+    margin-bottom:0;
+    color: var(--secondary-gray);
+    margin-bottom:.5rem;
   }
 `;
 const StyledImg = styles.div`
-  width:50%;
+  width:60%;
   height:100%;
-  background-color: var(--background-body);
+  display:flex;
+  align-items:center;
+
+  img{
+    max-width:100%;
+  }
 `;
 const StyledActions = styles.div`
   display:flex;
@@ -59,7 +68,7 @@ const HeroSection = () => {
             </StyledActions>
           </StyledInfo>
           <StyledImg>
-            <img src="" alt="" />
+            <img src={HeroImg} alt="image of a persone showcasing my apility" />
           </StyledImg>
         </StyledHero>
       </Container>

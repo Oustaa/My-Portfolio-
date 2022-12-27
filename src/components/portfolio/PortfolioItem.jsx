@@ -45,12 +45,12 @@ const StyledPortfolioItem = styles.div`
     background-color:var(--primary-purble);
     position: absolute;
     left:50%;
-    font-size:3vw;
+    font-size:2vw;
     transition: transform 0.5s ease;
   }
 
   .Links{
-    bottom:0;
+    bottom: -0.5rem;
     transform:translateY(100%) translateX(-50%);
     a{
       margin:0;
@@ -60,14 +60,14 @@ const StyledPortfolioItem = styles.div`
   }
 
   .Tech{
-    top:0.5rem;
+    top: 0;
     transform:translateY(calc(-100% - 0.5rem)) translateX(-50%);
   }
 `;
 
 const PortfolioItem = () => {
   const h = Math.round(Math.random() * 359);
-  const bgColor = `hsl(${h},69%,88%)`;
+  const bgColor = `hsl(${h}, 69%, 88%)`;
 
   const PortfolioLinks = (
     <div className="Links Container">
