@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Oval } from "react-loader-spinner";
 import ReCaptcha from "react-recaptcha-v3";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Container from "../Styles/Container";
 import Section from "../Styles/Section";
@@ -14,10 +18,17 @@ import {
 // Styles
 const StyledContact = styles.div`
   display:flex;
+  @media screen and (max-width:700px){
+    flex-direction: column;
+  }
 `;
 
 const StyledForm = styles.form`
   width:60%;
+  @media screen and (max-width:700px){
+    width:100%;
+    margin-bottom: 2rem;
+  }
 `;
 
 const StyledBtn = styles.button`
@@ -30,6 +41,12 @@ const StyledBtn = styles.button`
   border-radius: .25rem;
   margin-top:1rem;
   
+  display:flex;
+  align-items:center;
+
+  svg{
+    margin:0;
+  }
 `;
 
 const FormControll = styles.div`
@@ -61,7 +78,6 @@ const StyledExtraInfo = styles.div`
   justify-content: center;
   align-items:center; 
   gap:1rem;
-  padding-left: 2rem;
   background-color:var(--primary-purble);
   border-radius:.25rem;
   margin-left:3rem;
@@ -71,6 +87,21 @@ const StyledExtraInfo = styles.div`
     font-size:1.5rem;
   }
 
+  @media screen and (max-width:700px){
+    width:100%;
+    margin-left:0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-block:2rem;
+  }
+  @media screen and (max-width:350px){
+    width:100%;
+    margin-left:0;
+    flex-direction: column;
+    align-items:center;
+    flex-wrap: wrap;
+    padding-block:2rem;
+  }
   
 `;
 
@@ -121,6 +152,7 @@ const GetInTouch = () => {
     message: "",
   });
   const [isVerified, setIsVerified] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const canSave = Object.values(inputsValues).every((elem) => elem !== "");
 
   const changeInputHandler = (e) => {
@@ -135,9 +167,23 @@ const GetInTouch = () => {
     }
   };
 
-  const handelSubmit = (e) => {
+  const handelSubmit = async (e) => {
     e.preventDefault();
-    if (!canSave || !isVerified) return;
+    // if (!canSave || !isVerified) return;
+    const notify = () =>
+      toast.info(
+        "Thank you for reaching out, i will respond as soon as posible!!",
+        {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: 0,
+          theme: "light",
+        },
+      );
     const options = {
       method: "POST",
       headers: {
@@ -156,103 +202,134 @@ const GetInTouch = () => {
         content: [{ type: "text/plain", value: inputsValues.message }],
       }),
     };
-
-    fetch("https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send", options)
+    setIsSending(true);
+    await fetch(
+      "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
+      options,
+    )
       .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+      .then((response) => {
+        console.log(response);
+        notify();
+        setIsSending(false);
+      })
+      .catch((err) => {
+        notify();
+        setIsSending(false);
+        console.log(err.message);
+      });
   };
 
   return (
-    <Section id='Contact'>
-      <Container>
-        <StyledContact>
-          <StyledForm onSubmit={handelSubmit}>
-            <h2> Get In Touch</h2>
-            <FormControll>
-              <label htmlFor='name'>Name: </label>
-              <input
-                type='text'
-                id='name'
-                name='name'
-                onChange={changeInputHandler}
-                value={inputsValues.name}
-              />
-            </FormControll>
-            <FormControll>
-              <label htmlFor='email'>E-mail: </label>
-              <input
-                type='email'
-                id='email'
-                name='email'
-                onChange={changeInputHandler}
-                value={inputsValues.email}
-              />
-            </FormControll>
-            <FormControll>
-              <label htmlFor='subject'>Subject: </label>
-              <input
-                type='text'
-                id='subject'
-                name='subject'
-                onChange={changeInputHandler}
-                value={inputsValues.subject}
-              />
-            </FormControll>
-            <FormControll>
-              <label htmlFor='message'>Message: </label>
-              <textarea
-                rows='4'
-                type='message'
-                id='message'
-                name='message'
-                onChange={changeInputHandler}
-                value={inputsValues.message}
-              ></textarea>
-            </FormControll>
-            {/* <ReCaptcha
-              sitekey={"6Ldv8KkjAAAAAKO-ENebn3R9tFR_2rYGkgdNqiFg"}
-              action='submit'
-              verifyCallback={verifyCallback}
-            /> */}
-            <StyledBtn canSave={canSave}>Sent</StyledBtn>
-          </StyledForm>
-          <StyledExtraInfo>
-            <h3>Or Via:</h3>
-            <IconLabel>
-              <a
-                target='_blank'
-                rel='noreferrer'
-                href='https://www.linkedin.com/in/oussama-tailba-10b4981a6/'
-              >
-                <AiFillLinkedin />
-              </a>
-              <h4>My user Name</h4>
-            </IconLabel>
-            <IconLabel>
-              <a
-                target='_blank'
-                rel='noreferrer'
-                href='https://twitter.com/oussama82297104'
-              >
-                <AiFillTwitterSquare />
-              </a>
-              <h4>My user Name</h4>
-            </IconLabel>
-            <IconLabel>
-              <a
-                target='_blank'
-                rel='noreferrer'
-                href='https://www.instagram.com/oussama.tailaba/?hl=fr'
-              >
-                <AiFillInstagram />
-              </a>
-              <h4>My user Name</h4>
-            </IconLabel>
-          </StyledExtraInfo>
-        </StyledContact>
-      </Container>
-    </Section>
+    <>
+      <Section id='Contact'>
+        <Container>
+          <StyledContact>
+            <StyledForm onSubmit={handelSubmit}>
+              <h2> Get In Touch</h2>
+              <FormControll>
+                <label htmlFor='name'>Name: </label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  onChange={changeInputHandler}
+                  value={inputsValues.name}
+                />
+              </FormControll>
+              <FormControll>
+                <label htmlFor='email'>E-mail: </label>
+                <input
+                  type='email'
+                  id='email'
+                  name='email'
+                  onChange={changeInputHandler}
+                  value={inputsValues.email}
+                />
+              </FormControll>
+              <FormControll>
+                <label htmlFor='subject'>Subject: </label>
+                <input
+                  type='text'
+                  id='subject'
+                  name='subject'
+                  onChange={changeInputHandler}
+                  value={inputsValues.subject}
+                />
+              </FormControll>
+              <FormControll>
+                <label htmlFor='message'>Message: </label>
+                <textarea
+                  rows='4'
+                  type='message'
+                  id='message'
+                  name='message'
+                  onChange={changeInputHandler}
+                  value={inputsValues.message}
+                ></textarea>
+              </FormControll>
+              {/* <ReCaptcha
+                sitekey={"6Ldv8KkjAAAAAKO-ENebn3R9tFR_2rYGkgdNqiFg"}
+                action='submit'
+                verifyCallback={verifyCallback}
+              /> */}
+              <StyledBtn disabled={isSending} canSave={canSave}>
+                {!isSending ? (
+                  "Sent"
+                ) : (
+                  <Oval
+                    height={"10"}
+                    width={"10"}
+                    color='#fff'
+                    wrapperStyle={{}}
+                    wrapperClass=''
+                    visible={true}
+                    ariaLabel='oval-loading'
+                    secondaryColor='#fff'
+                    strokeWidth={4}
+                    strokeWidthSecondary={4}
+                  />
+                )}
+              </StyledBtn>
+            </StyledForm>
+            <StyledExtraInfo>
+              <h3>Or Via:</h3>
+              <IconLabel>
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href='https://www.linkedin.com/in/oussama-tailba-10b4981a6/'
+                >
+                  <AiFillLinkedin />
+                </a>
+                <h4>Oussama Tailba</h4>
+              </IconLabel>
+              <IconLabel>
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href='https://twitter.com/oussama82297104'
+                >
+                  <AiFillTwitterSquare />
+                </a>
+                <h4>@oussama82297104</h4>
+              </IconLabel>
+              <IconLabel>
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href='https://www.instagram.com/oussama.tailaba/?hl=fr'
+                >
+                  <AiFillInstagram />
+                </a>
+                <h4>oussama.tailaba</h4>
+              </IconLabel>
+            </StyledExtraInfo>
+          </StyledContact>
+        </Container>
+      </Section>
+      <ToastContainer />
+    </>
   );
 };
 

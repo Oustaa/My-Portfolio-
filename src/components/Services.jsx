@@ -23,7 +23,7 @@ const StyledServices = styles.div`
     display:flex;
     align-items: flex-end;
     position: relative;
-
+    margin-bottom: 1rem; 
     img{
       width:30px;
       margin-right:.5rem;
@@ -36,6 +36,22 @@ const StyledServices = styles.div`
       padding-left:.5rem;
     }
   }
+
+  @media screen and (max-width:700px){
+    grid-template-columns: repeat(4, 1fr);
+    .descreption{
+      grid-column: 1/ -1 ;
+    }
+    .UiUx, .dev{
+      grid-column: span 2;
+    }
+    @media screen and (max-width:500px){
+      .UiUx, .dev{
+        grid-column: span 4;
+      }
+    }
+  }
+
 `;
 
 const Services = () => {

@@ -10,7 +10,7 @@ const StyledPortfolioItem = styles.div`
   width:100%;
   aspect-ratio: 1/.6;
   border-radius:.25rem;
-  background-color: ${({ bgColor }) => bgColor};
+  background-color: var(--primary-purble);
   position: relative;
   overflow: hidden;
 
@@ -70,17 +70,17 @@ const PortfolioItem = () => {
   const bgColor = `hsl(${h}, 69%, 88%)`;
 
   const PortfolioLinks = (
-    <div className="Links Container">
-      <a href="/">
+    <div className='Links Container'>
+      <a href='/'>
         <BsGithub />
       </a>
-      <a href="/">
+      <a href='/'>
         <BsLink />
       </a>
     </div>
   );
   const PortfolioTech = (
-    <div className="Tech Container">
+    <div className='Tech Container'>
       <DiReact />
       <SiStyledcomponents />
       <SiPhp />
@@ -92,8 +92,8 @@ const PortfolioItem = () => {
       {PortfolioTech}
       {PortfolioLinks}
       <img
-        src="https://www.techniqueweb.com/images/Mindful-Motion-LA-Personal-Trainer-Website-Design.png"
-        alt=""
+        src='https://www.techniqueweb.com/images/Mindful-Motion-LA-Personal-Trainer-Website-Design.png'
+        alt=''
       />
     </StyledPortfolioItem>
   );

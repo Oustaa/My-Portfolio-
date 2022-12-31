@@ -12,6 +12,18 @@ const StyledPortfolioHeader = styles.div`
   gap:1rem;
   p{
     color: var(--secondary-gray);
+    margin-bottom:1rem;
+  }
+
+  @media screen and (max-width:700px) {
+    flex-direction:column;
+    row-gap:0;
+    
+    p{
+      width:90%;
+      text-align:center;
+      margin-top:0;
+    }
   }
 `;
 
@@ -19,11 +31,16 @@ const StyledPortfolioContainer = styles.div`
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap:2rem;
+
+  @media screen and (max-width:700px){
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
 `;
 
 const PortfolioSection = () => {
   return (
-    <Section id="Portfolio">
+    <Section id='Portfolio'>
       <Container>
         <StyledPortfolioHeader>
           <h2>Portfolio</h2>

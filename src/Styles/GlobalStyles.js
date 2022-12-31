@@ -20,13 +20,13 @@ const GlobalStyles = createGlobalStyle `
     body{
         padding:0;
         margin:0;
-        margin-block-end:150px;
         font-size:14px;
+        line-height: 1.1;
     }
     ul{
         list-style: none;
     }
-    h1,h2,h3,h4,h5,h6{
+    h1,h2,h3,h4,h5,h6,p{
         margin:0;
     }
     h3,h4,h5,h6{
@@ -38,6 +38,11 @@ const GlobalStyles = createGlobalStyle `
     }
     img{
         max-width:100%;
+    }
+    @media screen and (max-width:650px){
+        body{
+            line-height:1.4;
+        }
     }
 `;
 

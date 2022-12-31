@@ -1,0 +1,24 @@
+[debug] [2022-12-28T12:01:08.651Z] ----------------------------------------------------------------------
+[debug] [2022-12-28T12:01:08.653Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\otail\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-12-28T12:01:08.654Z] CLI Version:   11.16.1
+[debug] [2022-12-28T12:01:08.654Z] Platform:      win32
+[debug] [2022-12-28T12:01:08.654Z] Node Version:  v16.18.0
+[debug] [2022-12-28T12:01:08.655Z] Time:          Wed Dec 28 2022 13:01:08 GMT+0100 (UTC+01:00)
+[debug] [2022-12-28T12:01:08.656Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-28T12:01:08.758Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-28T12:01:08.758Z] > authorizing via signed-in user (otailaba98@gmail.com)
+[debug] [2022-12-28T12:01:08.759Z] [iam] checking project ousta-2f563 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-28T12:01:08.765Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ousta-2f563:testIamPermissions [none]
+[debug] [2022-12-28T12:01:08.766Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ousta-2f563:testIamPermissions x-goog-quota-user=projects/ousta-2f563
+[debug] [2022-12-28T12:01:08.771Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ousta-2f563:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-28T12:01:12.209Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ousta-2f563:testIamPermissions 200
+[debug] [2022-12-28T12:01:12.209Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ousta-2f563:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-28T12:01:12.213Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ousta-2f563 [none]
+[debug] [2022-12-28T12:01:42.233Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/ousta-2f563
+[debug] [2022-12-28T12:01:47.250Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\otail\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

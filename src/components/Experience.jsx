@@ -54,7 +54,6 @@ const StyledExperience = styles.div`
       right:100%;
       transform: translateY(-50%) translateX(50%);
     }
-
   }
 
   .date{
@@ -75,6 +74,30 @@ const StyledExperience = styles.div`
       margin:0;
     }
   }
+
+  @media screen and (max-width:650px){
+    width:100%;
+    left:0 !important;
+    text-align:left !important;
+    padding-left: 2rem !important;
+    padding-right: 0 !important;
+    padding-block:2rem;
+    border-right:none !important;
+    border-left: 2px dashed var(--primary-purble) ;
+    transform:unset;
+    &:after{
+      content:unset !important;
+    }
+    &:nth-child(odd){
+
+    }
+    .date{
+      right:100% !important;
+      left: unset !important;
+      transform: translateX(50%)  translateY(-50%) rotateZ(-90deg) !important;
+    }
+  }
+
 `;
 
 const StyledArrow = styles.div`
@@ -91,20 +114,27 @@ const StyledArrow = styles.div`
     transform:translateX(-50%);
     font-size:1.3rem;
   }
-  
+  @media screen and (max-width:700px){
+    width:fit-content;
+    transform:translateX(-50%);
+    &:after{
+      left:0;
+      transform: unset;
+    }
+  }
 `;
 
 const Experience = () => {
   return (
-    <Section id="Experience">
-      <Container textAlign="center">
+    <Section id='Experience'>
+      <Container textAlign='center'>
         <h2>Experience/Studies</h2>
         <StyledExperiences>
           {/* 1 */}
           <StyledExperience afterleft={-25.4} afterWidth={25.3}>
-            <div className="date">2020/10/25</div>
-            <div className="info">
-              <h3 className="title">BACALORIOS</h3>
+            <div className='date'>2020/10/25</div>
+            <div className='info'>
+              <h3 className='title'>BACALORIOS</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo.
@@ -113,9 +143,9 @@ const Experience = () => {
           </StyledExperience>
           {/* 2 */}
           <StyledExperience left={40} afterleft={0} afterWidth={37.7}>
-            <div className="date">2021/02/08</div>
-            <div className="info">
-              <h3 className="title">CS50 Computer Sience</h3>
+            <div className='date'>2021/02/08</div>
+            <div className='info'>
+              <h3 className='title'>CS50 Computer Sience</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe
@@ -125,9 +155,9 @@ const Experience = () => {
           </StyledExperience>
           {/* 3 */}
           <StyledExperience left={55} afterleft={-12.8} afterWidth={12.7}>
-            <div className="date">2023/06/23</div>
-            <div className="info">
-              <h3 className="title">FREELANCE</h3>
+            <div className='date'>2023/06/23</div>
+            <div className='info'>
+              <h3 className='title'>FREELANCE</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe
@@ -137,9 +167,9 @@ const Experience = () => {
           </StyledExperience>
           {/* 4 */}
           <StyledExperience left={0} afterWidth={0}>
-            <div className="date">2023/06/23</div>
-            <div className="info">
-              <h3 className="title">FREELANCE</h3>
+            <div className='date'>2023/06/23</div>
+            <div className='info'>
+              <h3 className='title'>FREELANCE</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe

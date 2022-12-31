@@ -44,13 +44,17 @@ const StyledButtons = styles.div`
   }
 `;
 
-const StyledDusplayedSkills = styles.div`
+const StyledDisplayedSkills = styles.div`
   display:flex;
   gap:1rem;
   justify-content:center;
   margin-block:1rem;
   h3{
    font-weight:100;
+  }
+  @media screen and (max-width:650px){
+    max-width:100%;
+    flex-wrap:wrap;
   }
   `;
 const Skills = () => {
@@ -61,14 +65,14 @@ const Skills = () => {
   };
 
   return (
-    <Section id="Skills">
-      <Container textAlign="center">
+    <Section id='Skills'>
+      <Container textAlign='center'>
         <h2>I am capable of working with </h2>
-        <StyledDusplayedSkills>
+        <StyledDisplayedSkills>
           {SKILLS[skills].map((skill, index) => (
             <h3 key={index}>{skill.toUpperCase()}</h3>
           ))}
-        </StyledDusplayedSkills>
+        </StyledDisplayedSkills>
         <StyledButtons>
           <button
             data-active={skills === "frontEnd"}
