@@ -1,7 +1,4 @@
-import React from "react";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from "react";
 
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
@@ -12,12 +9,23 @@ import Services from "./components/Services";
 import GetInTouch from "./components/GetInTouch";
 import Footer from "./components/Footer";
 import GlobalStyles from "./Styles/GlobalStyles";
+import SideNav from "./components/Ui/SideNav";
 
 const App = () => {
+  const [isOpend, setIsOpend] = useState(false);
+
+  const openSideNav = () => {
+    setIsOpend(true);
+  };
+  const closeSideNav = () => {
+    setIsOpend(false);
+  };
+
   return (
     <>
       <GlobalStyles />
-      <Header />
+      <Header opneSideNav={openSideNav} />
+      <SideNav open={isOpend} closeSideNav={closeSideNav} />
       <main>
         <HeroSection />
         <PortfolioSection />

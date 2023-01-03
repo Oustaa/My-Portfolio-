@@ -42,6 +42,12 @@ const StyledButtons = styles.div`
       color:#fff;
     }
   }
+  @media screen and (max-width:650px){
+    flex-direction: column;
+    button{
+      width: 70%;
+    }
+  }
 `;
 
 const StyledDisplayedSkills = styles.div`
@@ -50,13 +56,14 @@ const StyledDisplayedSkills = styles.div`
   justify-content:center;
   margin-block:1rem;
   h3{
-   font-weight:100;
+    font-weight:100;
   }
   @media screen and (max-width:650px){
     max-width:100%;
     flex-wrap:wrap;
   }
   `;
+
 const Skills = () => {
   const [skills, setSkills] = useState("frontEnd");
 
