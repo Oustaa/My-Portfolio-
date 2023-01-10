@@ -8,7 +8,7 @@ import { SlArrowDown } from "react-icons/sl";
 import styles from "styled-components";
 
 const StyledExperiences = styles.div`
-    position: relative;
+     position: relative;
     padding-block: 2rem;
 `;
 
@@ -126,15 +126,15 @@ const StyledArrow = styles.div`
 
 const Experience = () => {
   return (
-    <Section id='Experience'>
-      <Container textAlign='center'>
+    <Section id="Experience">
+      <Container textAlign="center">
         <h2>Experience/Studies</h2>
         <StyledExperiences>
           {/* 1 */}
           <StyledExperience afterleft={-25.4} afterWidth={25.3}>
-            <div className='date'>2020/10/25</div>
-            <div className='info'>
-              <h3 className='title'>BACALORIOS</h3>
+            <div className="date">2020/10/25</div>
+            <div className="info">
+              <h3 className="title">BACALORIOS</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo.
@@ -143,9 +143,9 @@ const Experience = () => {
           </StyledExperience>
           {/* 2 */}
           <StyledExperience left={40} afterleft={0} afterWidth={37.7}>
-            <div className='date'>2021/02/08</div>
-            <div className='info'>
-              <h3 className='title'>CS50 Computer Sience</h3>
+            <div className="date">2021/02/08</div>
+            <div className="info">
+              <h3 className="title">CS50 Computer Sience</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe
@@ -155,9 +155,9 @@ const Experience = () => {
           </StyledExperience>
           {/* 3 */}
           <StyledExperience left={55} afterleft={-12.8} afterWidth={12.7}>
-            <div className='date'>2023/06/23</div>
-            <div className='info'>
-              <h3 className='title'>FREELANCE</h3>
+            <div className="date">2023/06/23</div>
+            <div className="info">
+              <h3 className="title">FREELANCE</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe
@@ -167,9 +167,9 @@ const Experience = () => {
           </StyledExperience>
           {/* 4 */}
           <StyledExperience left={0} afterWidth={0}>
-            <div className='date'>2023/06/23</div>
-            <div className='info'>
-              <h3 className='title'>FREELANCE</h3>
+            <div className="date">2023/06/23</div>
+            <div className="info">
+              <h3 className="title">FREELANCE</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe
