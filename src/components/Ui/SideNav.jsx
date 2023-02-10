@@ -1,8 +1,9 @@
 import React from "react";
-
 import styled from "styled-components";
 
-const StyledSideNav = styled.div`
+import { BsX } from "react-icons/bs";
+
+const StyledSideNav = styled.nav`
   width: 70%;
   position: fixed;
   z-index: 20;
@@ -16,11 +17,12 @@ const StyledSideNav = styled.div`
   ${({ open }) =>
     open ? "transform: translateX(0%);" : "transform: translateX(100%);"}
   transition: transform 450ms ease-in-out;
-
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
   nav {
     height: 100%;
   }
-  nav ul {
+  ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,38 +38,51 @@ const StyledSideNav = styled.div`
   }
 `;
 
+const StyledBtn = styled.button`
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+`;
+
 const SideNav = ({ open, closeSideNav }) => {
   return (
     <StyledSideNav open={open}>
-      <nav>
-        <ul>
-          <li>
-            <a onClick={closeSideNav} href='#Portfolio'>
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a onClick={closeSideNav} href='#Skills'>
-              Skills
-            </a>
-          </li>
-          <li>
-            <a onClick={closeSideNav} href='#Experience'>
-              Experience
-            </a>
-          </li>
-          <li>
-            <a onClick={closeSideNav} href='#Services'>
-              Services
-            </a>
-          </li>
-          <li>
-            <a onClick={closeSideNav} href='#Contact'>
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <StyledBtn canSave={true} onClick={closeSideNav}>
+        <BsX />
+      </StyledBtn>
+      <ul>
+        <li>
+          <a onClick={closeSideNav} href="#Portfolio">
+            Portfolio
+          </a>
+        </li>
+        <li>
+          <a onClick={closeSideNav} href="#Skills">
+            Skills
+          </a>
+        </li>
+        <li>
+          <a onClick={closeSideNav} href="#Experience">
+            Experience
+          </a>
+        </li>
+        <li>
+          <a onClick={closeSideNav} href="#Services">
+            Services
+          </a>
+        </li>
+        <li>
+          <a onClick={closeSideNav} href="#Contact">
+            Contact
+          </a>
+        </li>
+      </ul>
     </StyledSideNav>
   );
 };

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { Oval } from "react-loader-spinner";
-import ReCaptcha from "react-recaptcha-v3";
+// import ReCaptcha from "react-recaptcha-v3";
+import StyledBtn from "../Styles/Button";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 import Container from "../Styles/Container";
 import Section from "../Styles/Section";
@@ -31,24 +32,6 @@ const StyledForm = styles.form`
   }
 `;
 
-const StyledBtn = styles.button`
-  background-color:${({ canSave }) =>
-    canSave ? "var(--primary-purble)" : "var(--background-light)"};
-  color:${({ canSave }) => (canSave ? "#fff" : "inherit")};
-  cursor:${({ canSave }) => (canSave ? "pointer" : "auto")};
-  border:none;
-  padding: .5rem 1rem ;
-  border-radius: .25rem;
-  margin-top:1rem;
-  
-  display:flex;
-  align-items:center;
-
-  svg{
-    margin:0;
-  }
-`;
-
 const FormControll = styles.div`
   margin-top:1rem;
     label{
@@ -62,6 +45,7 @@ const FormControll = styles.div`
       border: none;
       border-radius:.25rem;
       resize: none;
+      line-height: normal;
       &:focus{
         background-color: var(--secondary-gray);
         border:none;
@@ -119,30 +103,30 @@ const IconLabel = styles.div`
 `;
 
 // Check if an entred Email Is valid
-function isValid(inputs) {
-  const options = {
-    method: "GET",
-    url: "https://validate-email5.p.rapidapi.com/v1/validate",
-    params: { email: "hello@apitier.com" },
-    headers: {
-      "X-RapidAPI-Key": "f8cdae9dd3msh8dcbc3f61ded3cep1d39d9jsn33b92ef93b96",
-      "X-RapidAPI-Host": "validate-email5.p.rapidapi.com",
-    },
-  };
+// function isValid(inputs) {
+//   const options = {
+//     method: "GET",
+//     url: "https://validate-email5.p.rapidapi.com/v1/validate",
+//     params: { email: "hello@apitier.com" },
+//     headers: {
+//       "X-RapidAPI-Key": "process.env.REACT_APP_SEND_GRID_X_KEY",
+//       "X-RapidAPI-Host": "validate-email5.p.rapidapi.com",
+//     },
+//   };
 
-  axios
-    .request(options)
-    .then(function (response) {
-      if (response?.data?.result[0].isValid) {
-        console.log("Email is valid");
-      } else {
-        console.log("Email invalid");
-      }
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-}
+//   axios
+//     .request(options)
+//     .then(function(response) {
+//       if (response?.data?.result[0].isValid) {
+//         console.log("Email is valid");
+//       } else {
+//         console.log("Email invalid");
+//       }
+//     })
+//     .catch(function(error) {
+//       console.error(error);
+//     });
+// }
 
 const GetInTouch = () => {
   const [inputsValues, setInputsValues] = useState({
@@ -161,34 +145,29 @@ const GetInTouch = () => {
     });
   };
 
-  const verifyCallback = (response) => {
-    if (response) {
-      setIsVerified(true);
-    }
-  };
-
   const handelSubmit = async (e) => {
     e.preventDefault();
     // if (!canSave || !isVerified) return;
-    const notify = () =>
-      toast.info(
-        "Thank you for reaching out, i will respond as soon as posible!!",
-        {
-          position: "bottom-left",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: 0,
-          theme: "light",
-        },
-      );
+
+    // const notify = () =>
+    //   toast.info(
+    //     "Thank you for reaching out, i will respond as soon as posible!!",
+    //     {
+    //       position: "bottom-left",
+    //       autoClose: 5000,
+    //       hideProgressBar: false,
+    //       closeOnClick: false,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: 0,
+    //       theme: "light",
+    //     }
+    //   );
     const options = {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "X-RapidAPI-Key": "f8cdae9dd3msh8dcbc3f61ded3cep1d39d9jsn33b92ef93b96",
+        "X-RapidAPI-Key": process.env.REACT_APP_SEND_GRID_X_KEY,
         "X-RapidAPI-Host": "rapidprod-sendgrid-v1.p.rapidapi.com",
       },
       body: JSON.stringify({
@@ -205,16 +184,16 @@ const GetInTouch = () => {
     setIsSending(true);
     await fetch(
       "https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send",
-      options,
+      options
     )
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
-        notify();
+        // notify();
         setIsSending(false);
       })
       .catch((err) => {
-        notify();
+        // notify();
         setIsSending(false);
         console.log(err.message);
       });
@@ -222,48 +201,48 @@ const GetInTouch = () => {
 
   return (
     <>
-      <Section id='Contact'>
+      <Section id="Contact">
         <Container>
           <StyledContact>
             <StyledForm onSubmit={handelSubmit}>
               <h2> Get In Touch</h2>
               <FormControll>
-                <label htmlFor='name'>Name: </label>
+                <label htmlFor="name">Name: </label>
                 <input
-                  type='text'
-                  id='name'
-                  name='name'
+                  type="text"
+                  id="name"
+                  name="name"
                   onChange={changeInputHandler}
                   value={inputsValues.name}
                 />
               </FormControll>
               <FormControll>
-                <label htmlFor='email'>E-mail: </label>
+                <label htmlFor="email">E-mail: </label>
                 <input
-                  type='email'
-                  id='email'
-                  name='email'
+                  type="email"
+                  id="email"
+                  name="email"
                   onChange={changeInputHandler}
                   value={inputsValues.email}
                 />
               </FormControll>
               <FormControll>
-                <label htmlFor='subject'>Subject: </label>
+                <label htmlFor="subject">Subject: </label>
                 <input
-                  type='text'
-                  id='subject'
-                  name='subject'
+                  type="text"
+                  id="subject"
+                  name="subject"
                   onChange={changeInputHandler}
                   value={inputsValues.subject}
                 />
               </FormControll>
               <FormControll>
-                <label htmlFor='message'>Message: </label>
+                <label htmlFor="message">Message: </label>
                 <textarea
-                  rows='4'
-                  type='message'
-                  id='message'
-                  name='message'
+                  rows="4"
+                  type="message"
+                  id="message"
+                  name="message"
                   onChange={changeInputHandler}
                   value={inputsValues.message}
                 ></textarea>
@@ -280,12 +259,12 @@ const GetInTouch = () => {
                   <Oval
                     height={"10"}
                     width={"10"}
-                    color='#fff'
+                    color="#fff"
                     wrapperStyle={{}}
-                    wrapperClass=''
+                    wrapperClass=""
                     visible={true}
-                    ariaLabel='oval-loading'
-                    secondaryColor='#fff'
+                    ariaLabel="oval-loading"
+                    secondaryColor="#fff"
                     strokeWidth={4}
                     strokeWidthSecondary={4}
                   />
@@ -296,9 +275,9 @@ const GetInTouch = () => {
               <h3>Or Via:</h3>
               <IconLabel>
                 <a
-                  target='_blank'
-                  rel='noreferrer'
-                  href='https://www.linkedin.com/in/oussama-tailba-10b4981a6/'
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.linkedin.com/in/oussama-tailba-10b4981a6/"
                 >
                   <AiFillLinkedin />
                 </a>
@@ -306,9 +285,9 @@ const GetInTouch = () => {
               </IconLabel>
               <IconLabel>
                 <a
-                  target='_blank'
-                  rel='noreferrer'
-                  href='https://twitter.com/oussama82297104'
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://twitter.com/oussama82297104"
                 >
                   <AiFillTwitterSquare />
                 </a>
@@ -316,9 +295,9 @@ const GetInTouch = () => {
               </IconLabel>
               <IconLabel>
                 <a
-                  target='_blank'
-                  rel='noreferrer'
-                  href='https://www.instagram.com/oussama.tailaba/?hl=fr'
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.instagram.com/oussama.tailaba/?hl=fr"
                 >
                   <AiFillInstagram />
                 </a>
@@ -328,7 +307,7 @@ const GetInTouch = () => {
           </StyledContact>
         </Container>
       </Section>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 };

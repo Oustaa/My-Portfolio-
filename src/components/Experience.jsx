@@ -132,7 +132,7 @@ const Experience = () => {
         <StyledExperiences>
           {/* 1 */}
           <StyledExperience afterleft={-25.4} afterWidth={25.3}>
-            <div className="date">2020/10/25</div>
+            <div className="date">2019/6/25</div>
             <div className="info">
               <h3 className="title">BACALORIOS</h3>
               <p>
@@ -145,7 +145,7 @@ const Experience = () => {
           <StyledExperience left={40} afterleft={0} afterWidth={37.7}>
             <div className="date">2021/02/08</div>
             <div className="info">
-              <h3 className="title">CS50 Computer Sience</h3>
+              <h3 className="title">Bac +2 as software engineer</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe
@@ -157,7 +157,7 @@ const Experience = () => {
           <StyledExperience left={55} afterleft={-12.8} afterWidth={12.7}>
             <div className="date">2023/06/23</div>
             <div className="info">
-              <h3 className="title">FREELANCE</h3>
+              <h3 className="title">CS50 Computer Sience</h3>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Consequatur ducimus corrupti unde maxime explicabo sequi saepe

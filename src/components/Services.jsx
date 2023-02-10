@@ -5,8 +5,8 @@ import Section from "../Styles/Section";
 
 import styles from "styled-components";
 
-import DevImg from "../asits/icons8-development-64.png";
-import DesImg from "../asits/icons8-web-design-96.png";
+import DevImg from "../assets/icons8-development-64.png";
+import DesImg from "../assets/icons8-web-design-96.png";
 
 const extraStyles = `
   background-color: var(--background-light);
@@ -56,11 +56,11 @@ const StyledServices = styles.div`
 
 const Services = () => {
   return (
-    <Section extraStyles={extraStyles} id='Services'>
+    <Section extraStyles={extraStyles} id="Services">
       <Container>
         <StyledServices>
-          <div className='descreption'>
-            <div className='header'>
+          <div className="descreption">
+            <div className="header">
               <h2>My Services</h2>
             </div>
             <p>
@@ -70,9 +70,9 @@ const Services = () => {
               nihil?
             </p>
           </div>
-          <div className='UiUx'>
-            <div className='header'>
-              <img src={DesImg} alt='An design icon' />
+          <div className="UiUx">
+            <div className="header">
+              <img src={DesImg} alt="An design icon" />
               <h3>Ui/Ux Design</h3>
             </div>
             <p>
@@ -82,9 +82,9 @@ const Services = () => {
             </p>
             {/* <a href="/">Hire me</a> */}
           </div>
-          <div className='dev'>
-            <div className='header'>
-              <img src={DevImg} alt='An design icon' />
+          <div className="dev">
+            <div className="header">
+              <img src={DevImg} alt="An design icon" />
               <h3>Full Stack Development</h3>
             </div>
             <p>

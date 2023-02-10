@@ -6,6 +6,8 @@ import Container from "../../Styles/Container";
 import Section from "../../Styles/Section";
 import styles from "styled-components";
 
+import ProjectsData from "../../data/ProjectsData";
+
 const StyledPortfolioHeader = styles.div`
   display:flex;
   align-items:center;
@@ -40,20 +42,28 @@ const StyledPortfolioContainer = styles.div`
 
 const PortfolioSection = () => {
   return (
-    <Section id='Portfolio'>
+    <Section id="Portfolio">
       <Container>
         <StyledPortfolioHeader>
           <h2>Portfolio</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consectetur, ullam reprehenderit. Nostrum recusandae voluptas, at
-            rerum neque ad distinctio alias magnam voluptatem eligendi maiores
-            necessitatibus.
+            Welcome to my portfolio section, where you can discover some of my
+            latest and greatest projects. I've had the privilege to work with an
+            array of different technologies, such as HTML, CSS, Bootstrap, Sass,
+            JavaScript, React, styled-components, PHP, and MySQL. These projects
+            represent a diversity of industries, including e-commerce, social
+            media, and healthcare, and span a range of applications, from
+            responsive web design to interactive user interfaces. As you explore
+            my portfolio, you'll see that I've leveraged my technical expertise
+            to create dynamic, engaging, and user-friendly products. I'm
+            passionate about pushing the boundaries of what's possible in the
+            digital world, and I hope that my portfolio inspires you to do the
+            same.
           </p>
         </StyledPortfolioHeader>
         <StyledPortfolioContainer>
-          {[1, 2, 3, 4].map((item, index) => (
-            <PortfolioItem key={index} />
+          {ProjectsData.map((item, index) => (
+            <PortfolioItem {...item} key={index} />
           ))}
         </StyledPortfolioContainer>
       </Container>

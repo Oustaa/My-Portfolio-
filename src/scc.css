@@ -1,10 +1,11 @@
 body {
-    color: lightblue;
-    overflow: hidden;
-    position: absolute;
-    position: relative;
-    outline: 1px solid pink;
-    transform: translateY(-50%) translateX(-50%) rotateX(90deg);
-    cursor: inherit;
-    mix-blend-mode: hard-light;
+  color: lightblue;
+  overflow: hidden;
+  position: absolute;
+  position: relative;
+  outline: 1px solid pink;
+  transform: translateY(-50%) translateX(-50%) rotateX(90deg);
+  cursor: inherit;
+  mix-blend-mode: hard-light;
+  line-height: normal;
 }

@@ -12,12 +12,11 @@ const SKILLS = {
     "Bootstarp",
     "SASS",
     "JavaScript",
-    "JQuiry",
+    "JQuery",
     "React",
-    "testing",
   ],
-  backEnd: ["Php", "Mysql", "Laravel", "MongoDB"],
-  more: ["Git", "Wordpres", "Docker", "deployment", "azure"],
+  backEnd: ["Php", "NodeJs", "Mysql", "MongoDB"],
+  more: ["Git", "Figma", "Adobe XD"],
 };
 
 const StyledButtons = styles.div`
@@ -72,8 +71,8 @@ const Skills = () => {
   };
 
   return (
-    <Section id='Skills'>
-      <Container textAlign='center'>
+    <Section id="Skills">
+      <Container textAlign="center">
         <h2>I am capable of working with </h2>
         <StyledDisplayedSkills>
           {SKILLS[skills].map((skill, index) => (

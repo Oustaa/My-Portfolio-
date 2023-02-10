@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeroImg from "../asits/heroSectionImg.png";
+import HeroImg from "../assets/heroSectionImg.png";
 
 import styles from "styled-components";
 import Container from "../Styles/Container";
@@ -73,7 +73,7 @@ const StyledActions = styles.div`
 
 const HeroSection = () => {
   return (
-    <div id='Hero'>
+    <div id="Hero">
       <Container>
         <StyledHero>
           <StyledInfo>
@@ -81,12 +81,12 @@ const HeroSection = () => {
             <h1>A Freelance Full Stack Developer</h1>
             <h1>And UI/UX designer</h1>
             <StyledActions>
-              <a href='#Portfolio'>Portfolio</a>
-              <a href='#Contact'>Contact</a>
+              <a href="#Portfolio">Portfolio</a>
+              <a href="#Contact">Contact</a>
             </StyledActions>
           </StyledInfo>
           <StyledImg>
-            <img src={HeroImg} alt='of a persone showcasing my apility' />
+            <img src={HeroImg} alt="of a persone showcasing my apility" />
           </StyledImg>
         </StyledHero>
       </Container>

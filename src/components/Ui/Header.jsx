@@ -1,7 +1,7 @@
 import React from "react";
 
-import { BsHammer } from "react-icons/bs";
-import Container from "../Styles/Container";
+import { BiMenu } from "react-icons/bi";
+import Container from "../../Styles/Container";
 import styles from "styled-components";
 
 const StyledHeader = styles.div`
@@ -44,32 +44,32 @@ const Header = ({ opneSideNav }) => {
     <header>
       <Container>
         <StyledHeader>
-          <div id='logo'>Ousta</div>
-          <div className='hambergerIcon'>
+          <div id="logo">Ousta</div>
+          <div className="hambergerIcon">
             <button
               onClick={() => {
                 opneSideNav(true);
               }}
             >
-              <BsHammer />
+              <BiMenu />
             </button>
           </div>
           <nav>
             <ul>
               <li>
-                <a href='#Portfolio'>Portfolio</a>
+                <a href="#Portfolio">Portfolio</a>
               </li>
               <li>
-                <a href='#Skills'>Skills</a>
+                <a href="#Skills">Skills</a>
               </li>
               <li>
-                <a href='#Experience'>Experience</a>
+                <a href="#Experience">Experience</a>
               </li>
               <li>
-                <a href='#Services'>Services</a>
+                <a href="#Services">Services</a>
               </li>
               <li>
-                <a href='#Contact'>Contact</a>
+                <a href="#Contact">Contact</a>
               </li>
             </ul>
           </nav>

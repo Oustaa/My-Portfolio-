@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyles = createGlobalStyle `
+const GlobalStyles = createGlobalStyle`
     :root{
         --background-light: #ECECEC;
         --primary-purble: #6C63FF;
@@ -15,13 +15,13 @@ const GlobalStyles = createGlobalStyle `
     *{
         font-family: 'Englebert', sans-serif;
         box-sizing: border-box;  
+        line-height:1.2;
     }
 
     body{
         padding:0;
         margin:0;
-        font-size:14px;
-        line-height: 1.1;
+        font-size:15px;
     }
     ul{
         list-style: none;
@@ -38,11 +38,6 @@ const GlobalStyles = createGlobalStyle `
     }
     img{
         max-width:100%;
-    }
-    @media screen and (max-width:650px){
-        body{
-            line-height:1.4;
-        }
     }
 `;
 
